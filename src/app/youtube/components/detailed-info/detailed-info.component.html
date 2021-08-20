@@ -1,0 +1,36 @@
+<div *ngIf="selectedVideo" class="detailed">
+  <div class="detailed__back" (click)="onClickBack()" [appItemBorderColor]="selectedVideo.snippet.publishedAt">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </div>
+  <div class="detailed__image">
+    <img [src]="selectedVideo.snippet.thumbnails.standard.url" [alt]="selectedVideo.snippet.title">
+  </div>
+  <div class="detailed__wrapper" [appItemBorderColor]="selectedVideo.snippet.publishedAt">
+    <div class="detailed__main">
+      <div class="detailed__main-title">{{ selectedVideo.snippet.title }}</div>
+      <div class="detailed__main-date">{{ selectedVideo.snippet.publishedAt | date: "fullDate" }}</div>
+    </div>
+    <div class="detailed__descr">
+      <span>Description:</span>
+      <p>{{ selectedVideo.snippet.localized.description }}</p>
+    </div>
+    <div class="statistics">
+      <span class="statistics__item">
+        <mat-icon>visibility</mat-icon>
+        <span>{{selectedVideo.statistics.viewCount}}</span>
+      </span>
+      <span class="statistics__item">
+        <mat-icon>favorite</mat-icon>
+        <span>{{selectedVideo.statistics.likeCount}}</span>
+      </span>
+      <span class="statistics__item">
+        <mat-icon>thumb_down</mat-icon>
+        <span>{{selectedVideo.statistics.dislikeCount}}</span>
+      </span>
+      <span class="statistics__item">
+        <mat-icon>comment</mat-icon>
+        <span>{{selectedVideo.statistics.commentCount}}</span>
+      </span>
+    </div>
+  </div>
+</div>

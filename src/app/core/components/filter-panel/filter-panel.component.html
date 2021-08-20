@@ -1,0 +1,17 @@
+<div class="sorting">
+  <div class="sorting-wrapper">
+    <ul class="sorting__list">Sorting by:
+      <li class="sorting__option">date
+        <ul class="sorting__dropdown">
+          <li class="sorting__dropdown-item" (click)="onFirstDateSort()">new first</li>
+          <li class="sorting__dropdown-item" (click)="onOldDateSort()">old first</li>
+        </ul>
+      </li>
+      <li class="sorting__option" (click)="onViewsSort()">count of views</li>
+      <li class="sorting__option">
+        <label class="sorting__option-word" for="sorting-input">by word or sentance</label>
+        <input type="text" id="sorting-input" [(ngModel)]="inputWord" (keyup)="onInputChange()">
+      </li>
+    </ul>
+  </div>
+</div>

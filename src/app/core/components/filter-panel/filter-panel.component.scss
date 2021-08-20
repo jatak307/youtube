@@ -1,0 +1,107 @@
+.sorting {
+  position: absolute;
+  width: 100vw;
+  height: 50px;
+  top: 64px;
+  left: 0;
+  background: #E5E5E5;
+  border-top: #49484823 solid .5px;
+
+  &-wrapper {
+    margin: 0 auto;
+    width: 565px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #929292;
+    margin-right: 11px;
+  }
+
+  &__option {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #2F80ED;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0px 1px 0px 0px #2F80ED;
+    }
+    &:nth-child(3):hover {
+      box-shadow: none;
+    }
+    &:nth-child(1) {
+      position: relative;
+      margin: 0 15px;
+    }
+    &:nth-child(3) {
+      margin: 0 21px;
+    }
+  }
+
+
+  &__dropdown {
+    visibility: hidden;
+    list-style-type: none;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    left: -70%;
+    top: -190%;
+    display: none;
+    &-item {
+      clear: both;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 25px;
+      padding: 2px;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      line-height: 12px;
+      color: #FFFFFF;
+      background: #2F80ED;
+      border-radius: 0 0 4px 4px;
+      opacity: .6;
+      z-index: 100;
+      transition: all 0.5s ease;
+      &:first-child {
+        margin-bottom: 20px;
+        border-radius: 4px 4px 0 0;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &__option:hover > ul,
+  &__dropdown:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+
+  input {
+    width: 149px;
+    height: 13px;
+    background: #FFFFFF;
+    border: none;
+    margin-left: 10px;
+    outline: none;
+    font-size: 10px;
+    color: #929292;
+    padding: 0 4px;
+  }
+}

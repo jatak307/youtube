@@ -1,0 +1,29 @@
+<mat-card
+  *ngIf="selectedVideo"
+  [appItemBorderColor]="selectedVideo.snippet.publishedAt"
+  class="example-card"
+>
+  <img [src]="selectedVideo.snippet.thumbnails.standard.url" />
+  <div class="statistics">
+    <span class="statistics__item">
+      <mat-icon>visibility</mat-icon>
+      <span>{{selectedVideo.statistics.viewCount}}</span>
+    </span>
+    <span class="statistics__item">
+      <mat-icon>favorite</mat-icon>
+      <span>{{selectedVideo.statistics.likeCount}}</span>
+    </span>
+    <span class="statistics__item">
+      <mat-icon>thumb_down</mat-icon>
+      <span>{{selectedVideo.statistics.dislikeCount}}</span>
+    </span>
+    <span class="statistics__item">
+      <mat-icon>comment</mat-icon>
+      <span>{{selectedVideo.statistics.commentCount}}</span>
+    </span>
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{ selectedVideo.snippet.title }}</mat-card-title>
+  </mat-card-header>
+  <button class="more-btn" (click)="onMoreBtnClick()">more...</button>
+</mat-card>

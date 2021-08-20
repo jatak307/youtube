@@ -1,0 +1,30 @@
+<div class="header">
+  <div class="header-wrapper">
+    <div class="center-block">
+      <img src="../../../assets/icons/header/logo.svg" class="logo-img" />
+      <form class="search" [formGroup]="form" (ngSubmit)="submit()">
+        <input id="search" type="text" placeholder="What are you want to find out?" aria-label="What are you want to find out?" aria-autocomplete="list" class="search__input">
+        <button type="submit" class="search__btn" id="search-btn">search</button>
+      </form>
+      <button class="toggle-filter-panel-btn" *ngIf="isMain" (click)="toggleFilterPanel()">
+        <img src="../../../assets/icons/header/sort.png" />
+      </button>
+    </div>
+    <div class="user" (click)="onAuthClick()">
+      <div class="user__name" *ngIf="user || authService.userName; else defaultValue">{{ user || authService.userName }}</div>
+
+      <ng-template #defaultValue>
+        <div class="user__name">Your Name</div>
+      </ng-template>
+
+      <div class="user__icon">
+        <img src="../../../assets/icons/header/user-icon.png" alt="user-icon">
+      </div>
+
+      <div *ngIf="user || authService.userName" class="user__logout" (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+      </div>
+    </div>
+  </div>
+  <app-filter-panel *ngIf="visibleFilterPanel"></app-filter-panel>
+</div>

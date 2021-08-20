@@ -1,0 +1,7 @@
+<div class="results-list" *ngIf="showResultsList.showResults">
+  <app-search-results-item
+    *ngFor="let item of (resultsList | filterByText: filterService.filterWord | dateSort: filterService.dateSort | viewsSort: filterService.viewsSort)"
+    [selectedVideo]="item"
+  ></app-search-results-item>
+</div>
+
